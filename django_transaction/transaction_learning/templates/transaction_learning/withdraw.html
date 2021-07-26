@@ -1,0 +1,12 @@
+{% extends "transaction_learning/layout.html" %}
+
+{% block body %}
+    
+    <form action={% url "withdraw" account_name=account_name %} method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" />
+    </form>
+
+    <a href={% url 'index' %}> Back to main</a>
+{% endblock %}

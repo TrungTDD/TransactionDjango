@@ -1,0 +1,41 @@
+{% extends 'transaction_learning/layout.html' %}
+
+
+{% block body %}
+    <h1>
+        {{ message }}
+    </h1>
+    <ul>
+        {% for account in accounts %}
+            <li>
+                
+                <h2>
+                    {{ account.name }} with balance:  {{ account.balance }}
+                </h2>
+
+                <a href={% url 'deposit' account_name=account.name %}> 
+                    <h4>
+                        Deposit
+                    </h4> 
+                </a>
+
+                <a href={% url 'withdraw' account_name=account.name %}> 
+                    <h4>
+                        Withdraw
+                    </h4> 
+                </a>
+
+                <a href={% url 'sending' account_name=account.name %}> 
+                    <h4>
+                        Sending money
+                    </h4> 
+                </a>
+
+                
+            </li>
+        {% endfor %}
+    </ul>
+    
+
+    
+{% endblock %}
