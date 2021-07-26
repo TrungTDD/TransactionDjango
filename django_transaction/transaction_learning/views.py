@@ -70,6 +70,7 @@ def make_sending_transaction(request, account_name):
                     receive_user = Account.objects.get(name=receive_account)
                     receive_user.balance += amount
                     receive_user.save()
+                    print("A")
                     LogTransaction(account=account_name, message="TRANSACTION SUCCESSFULLY", 
                                 transaction_type=SENDING_TRANSACTION, status=SUCCESSFULLY_STATUS).save()
                     return HttpResponseRedirect(reverse("index"))
